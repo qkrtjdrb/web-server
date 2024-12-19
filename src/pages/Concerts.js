@@ -12,7 +12,7 @@ function Concerts() {
   useEffect(() => {
     // 데이터 가져오기
     axios
-    .get('http://10.0.5.173/Concerts')
+    .get('https://10.0.5.173/Concerts')
     .then((response) => {
       setConcerts(response.data);
     })
