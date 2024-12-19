@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import axios from "axios";
-import https from 'https';
+
+
 
 function Concerts() {
   const Navigate = useNavigate();
@@ -11,9 +12,7 @@ function Concerts() {
   useEffect(() => {
     // 데이터 가져오기
     axios
-    .get('http://10.0.5.173/Concerts', {
-      httpsAgent: new https.Agent({ rejectUnauthorized: false }), // 인증서 오류 무시
-    })
+    .get('http://10.0.5.173/Concerts')
     .then((response) => {
       setConcerts(response.data);
     })
