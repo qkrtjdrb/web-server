@@ -12,6 +12,7 @@
     "react-scripts": "^5.0.1",
     "styled-components": "^6.1.13",
     "web-vitals": "^4.2.4"
+    
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,6 +36,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  }
+  {
+  "proxy": [
+      "http://10.0.5.173:5000"
     ]
   }
 }
