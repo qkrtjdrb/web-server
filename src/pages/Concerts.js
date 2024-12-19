@@ -10,12 +10,12 @@ function Concerts() {
   useEffect(() => {
     // 데이터 가져오기
     axios
-      .get("http://10.0.5.173:5000/concerts")
+      .get("http://10.0.5.173:5000/Concerts")
       .then((response) => {
         setConcerts(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching concerts:", error);
+        console.error("Error fetching Concerts:", error);
       });
   }, []);
 
