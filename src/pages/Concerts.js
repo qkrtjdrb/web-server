@@ -10,7 +10,9 @@ function Concerts() {
   useEffect(() => {
     // 데이터 가져오기
     axios
-    .get("http://10.0.5.173/Concerts")  // http로 변경
+    .get('http://10.0.5.173/Concerts', {
+      httpsAgent: new https.Agent({ rejectUnauthorized: false }), // 인증서 오류 무시
+    })
     .then((response) => {
       setConcerts(response.data);
     })
