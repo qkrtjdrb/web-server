@@ -10,7 +10,9 @@ function Concerts() {
   useEffect(() => {
     // 데이터 가져오기
     axios
-      .get("https://10.0.5.173/Concerts")
+      .get("https://10.0.5.173/Concerts", {
+        httpsAgent: new https.Agent({ rejectUnauthorized: false }), // 인증서 오류 무시
+      })
       .then((response) => {
         setConcerts(response.data);
       })
@@ -26,10 +28,17 @@ function Concerts() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+      }}
+    >
       <h1>Concerts</h1>
       <Button onClick={() => Navigate("/")}> 홈 </Button>
-      <div style={{display: 'flex'}}>
+      <div style={{ display: "flex" }}>
         {concerts.map((concert, index) => (
           <div key={index} style={{ marginBottom: "20px" }}>
             <img
