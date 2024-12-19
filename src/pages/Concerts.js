@@ -11,16 +11,14 @@ function Concerts() {
   useEffect(() => {
     // 데이터 가져오기
     axios
-      .get("https://10.0.5.173/Concerts", {
-        httpsAgent: new https.Agent({ rejectUnauthorized: false }), // 인증서 오류 무시
-      })
-      .then((response) => {
-        setConcerts(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching Concerts:", error);
-      });
-  }, []);
+    .get("http://10.0.5.173/Concerts")  // http로 변경
+    .then((response) => {
+      setConcerts(response.data);
+    })
+    .catch((error) => {
+      console.error("Error fetching Concerts:", error);
+    });
+}, []);
 
   // 날짜 형식 변환 함수
   const formatDate = (isoString) => {
